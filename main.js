@@ -5,13 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentIndex = 0;
   const totalSlides = slides.length;
   let slideInterval;
-  const autoPlayDelay = 5000; // 5 sekund
+  const autoPlayDelay = 5000;
 
-  // Funkcja pokazująca konkretny slajd
   function showSlide(index) {
     slides.forEach((slide, i) => {
       if (i === index) {
-        // Pokaż aktywny slajd
         slide.classList.remove("opacity-0", "z-0");
         slide.classList.add("opacity-100", "z-10");
       } else {
@@ -22,22 +20,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Funkcja następny slajd (z pętlą nieskończoną)
   function nextSlide() {
-    // Disable slide rotation on mobile
     if (window.innerWidth < 768) return;
 
     currentIndex = (currentIndex + 1) % totalSlides;
     showSlide(currentIndex);
   }
 
-  // Funkcja poprzedni slajd (z pętlą nieskończoną)
   function prevSlide() {
     currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
     showSlide(currentIndex);
   }
 
-  // Funkcje do resetowania autoodtwarzania po kliknięciu
   function resetInterval() {
     clearInterval(slideInterval);
     slideInterval = setInterval(nextSlide, autoPlayDelay);
@@ -61,12 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (logoTrack && logoPrev && logoNext) {
     const logos = Array.from(logoTrack.children);
-    const visibleLogos = 5; // min-w-[20%]
+    const visibleLogos = 5;
     const totalLogos = logos.length;
     let logoIndex = 0;
     let isAnimating = false;
 
-    // Klonujemy pierwsze 5 elementów, aby uzyskać efekt nieskończoności
     logos.slice(0, visibleLogos).forEach((logo) => {
       const clone = logo.cloneNode(true);
       logoTrack.appendChild(clone);
