@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+  --font-primary: "Satoshi", sans-serif;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("./public/fonts/Satoshi-Regular.woff") format("woff");
+  font-weight: 400;
+}
+
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+}
+
+.font-heading {
+  font-family: "Montserrat", sans-serif;
+}
+.font-italic-accent {
+  font-family: "Playfair Display", serif;
+}
+
+::selection {
+  background-color: #d1d5db;
+  color: #111827;
+}
+::-moz-selection {
+  background-color: #d1d5db;
+  color: #111827;
+}
